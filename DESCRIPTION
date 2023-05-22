@@ -1,0 +1,34 @@
+Package: play
+Title: Play games in the console
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Alexander", "Rossell Hayes", , "alexander@rossellhayes.com", role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "0000-0001-9412-0457")),
+    person("Alan", "Beale", , "12dicts@pobox.com", role = "dtc",
+           comment = "Word lists"),
+    person("Kevin", "Atkinson", , "kevina@users.sourceforge.net", role = "dtc",
+           comment = "Word lists"),
+    person("Luis", "Von Ahn", role = "dtc",
+           comment = "Word lists")
+  )
+Description: Includes a number of games that can be played in the R
+    console.
+License: MIT + file LICENSE
+Depends: 
+    R (>= 2.10)
+Imports: 
+    cli,
+    crayon,
+    R6,
+    rlang,
+    stats,
+    utils,
+    withr
+Suggests: 
+    job,
+    rstudioapi,
+    twenty48
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
