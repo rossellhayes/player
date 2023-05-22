@@ -1,4 +1,4 @@
-intensive_analysis <- function() {
+intensive_analysis <- function(minutes = 5) {
   cli::cli_text("What is your question?")
   question <- input("Question: ", transform = identity)
 
@@ -10,9 +10,13 @@ intensive_analysis <- function() {
       i <- 1
       start_time <- Sys.time()
 
-      while (difftime(Sys.time(), start_time, units = "mins") < 3) {
+      while (difftime(Sys.time(), start_time, units = "mins") < minutes) {
         cli::cli_h3(loading_messages[[i]])
-        i <- i + 1 - (i > length(loading_messages)) * length(loading_messages)
+        i <- i + 1
+        if (i > length(loading_messages)) {
+          loading_messages <- sample(loading_messages)
+          i <- i - length(loading_messages)
+        }
         Sys.sleep(stats::runif(1, 1, 5))
 
         for (j in seq_len(1 + stats::rpois(1, 3))) {
@@ -37,6 +41,7 @@ intensive_analysis <- function() {
     title = "Performing an intensive analysis...",
     import = c(
       question,
+      minutes,
       loading_messages,
       greek_letters,
       magic_8_ball
@@ -96,7 +101,8 @@ loading_messages <- c(
   "Cracking the secret key",
   "Guessing and checking",
   "Plugging and chugging",
-  "Refactoring source code"
+  "Refactoring source code",
+  "Tilting at windmills"
 )
 
 greek_letters <- c(
