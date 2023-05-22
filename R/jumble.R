@@ -228,7 +228,7 @@ Jumble <- R6::R6Class(
         private$word,
         jumble_checklist[
           jumble_checklist$letters == paste(letters, collapse = ""),
-        ]
+        ]$word
       )
 
       self$game_over  <- FALSE
