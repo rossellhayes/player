@@ -6,7 +6,11 @@ play_global_thermonuclear_war <- function() {
 
   line_1 <- "A strange game."
   line_2 <- "The only winning move is not to play."
-  line_3 <- paste0("How about a nice game of ", sample(game_list, 1), "?")
+  line_3 <- paste0(
+    "How about a nice game of ",
+    sample(game_list[!game_list == "Global Thermonuclear War"], 1),
+    "?"
+  )
 
   Sys.sleep(1)
   clear_console()
