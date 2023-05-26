@@ -1,3 +1,23 @@
+#' Look like you're working hard when you're hardly working
+#'
+#' @param minutes How long to keep this up for.
+#'   Defaults to `Inf`, which runs forever.
+#' @param speed How fast to produce output.
+#'   The default value, `1`,
+#'   takes between 0.1 and 0.5 seconds to produce a calculation
+#'   and between 1 and 5 seconds to produce a status update.
+#' @param background_job Whether to produce output in in a background job
+#'   (if `TRUE`) or the console (if `FALSE`).
+#'   Defaults to `FALSE`.
+#'   Running in a background process requires the [job][job::job()] package.
+#' @param end Code to run after `minutes`.
+#'   If `minutes` is `Inf`, `end` is never run.
+#'
+#' @return `end` if `minutes` is finite.
+#' @export
+#'
+#' @examples
+#' look_busy()
 look_busy <- function(
   minutes = Inf,
   speed = 1,
@@ -57,7 +77,7 @@ look_busy_internal <- function(minutes, speed) {
       shuffled_status_messages <- paste0(shuffle(status_messages), "...")
       i <- i - length(shuffled_status_messages)
     }
-    Sys.sleep(stats::runif(1, 0.4, 1.6) * (1/speed))
+    Sys.sleep(stats::runif(1, 1, 5) * (1/speed))
 
     for (j in seq_len(1 + stats::rpois(1, 3))) {
       variable <- sample(variables, 1)
@@ -76,7 +96,7 @@ look_busy_internal <- function(minutes, speed) {
 
       cli::cat_line(variable, " = ", result)
 
-      Sys.sleep(stats::runif(1, 0.1, 0.4) * (1/speed))
+      Sys.sleep(stats::runif(1, 0.1, 0.5) * (1/speed))
     }
   }
 }
