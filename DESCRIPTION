@@ -9,7 +9,13 @@ Authors@R: c(
     person("Kevin", "Atkinson", , "kevina@users.sourceforge.net", role = "dtc",
            comment = "Word lists"),
     person("Luis", "Von Ahn", role = "dtc",
-           comment = "Word lists")
+           comment = "Word lists"),
+    person("Kristin", "Bott", , "kristin.bott@posit.co", role = "ctb",
+           comment = "look_busy() status messages"),
+    person("Daniel", "Chen", , "daniel.chen@posit.co", role = "ctb",
+           comment = c(ORCID = "0000-0003-3857-1741", "look_busy() status messages")),
+    person("Steven", "Smallberg", , "steven.smallberg@posit.co", role = "ctb",
+           comment = "look_busy() status messages")
   )
 Description: Includes a number of games that can be played in the R
     console.
