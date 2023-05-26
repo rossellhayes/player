@@ -1,4 +1,4 @@
-intensive_analysis <- function(minutes = 5, background_job = TRUE) {
+intensive_analysis <- function(minutes = 5, speed = 1, background_job = TRUE) {
   cli::cli_text("What is your question?")
   question <- input("Question: ", transform = identity)
 
@@ -6,6 +6,7 @@ intensive_analysis <- function(minutes = 5, background_job = TRUE) {
 
   look_busy(
     minutes,
+    speed,
     background_job,
     end = {
       cli::cli_h1("Question: {question}")

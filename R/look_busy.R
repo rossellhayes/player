@@ -1,10 +1,11 @@
 look_busy <- function(
   minutes = Inf,
+  speed = 1,
   background_job = FALSE,
   end = invisible(NULL)
 ) {
   if (!background_job) {
-    look_busy_internal(minutes)
+    look_busy_internal(minutes, speed)
     return(end)
   }
 
@@ -34,7 +35,7 @@ look_busy <- function(
 
   job::job(
     {
-      look_busy_internal(minutes)
+      look_busy_internal(minutes, speed)
       rlang::eval_bare(end)
     },
     title = "Performing an intensive analysis...",
@@ -43,7 +44,7 @@ look_busy <- function(
   )
 }
 
-look_busy_internal <- function(minutes) {
+look_busy_internal <- function(minutes, speed) {
   shuffled_status_messages <- paste0(shuffle(status_messages), "...")
 
   i <- 1
@@ -56,7 +57,7 @@ look_busy_internal <- function(minutes) {
       shuffled_status_messages <- paste0(shuffle(status_messages), "...")
       i <- i - length(shuffled_status_messages)
     }
-    Sys.sleep(stats::runif(1, 0.5, 2))
+    Sys.sleep(stats::runif(1, 0.4, 1.6) * (1/speed))
 
     for (j in seq_len(1 + stats::rpois(1, 3))) {
       variable <- sample(variables, 1)
@@ -75,7 +76,7 @@ look_busy_internal <- function(minutes) {
 
       cli::cat_line(variable, " = ", result)
 
-      Sys.sleep(stats::runif(1, 0.1, 0.5))
+      Sys.sleep(stats::runif(1, 0.1, 0.4) * (1/speed))
     }
   }
 }
@@ -121,7 +122,7 @@ status_messages <- list(
   "Installing Rust",
   "Discovering a memory leak",
   "Subsetting object of type closure",
-  "Summing the squares",
+  "Summing squares",
   "Cleaning data",
   "Removing NAs",
   "Imputing the mean",
