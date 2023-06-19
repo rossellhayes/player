@@ -8,6 +8,7 @@ dir_ls("data-raw", glob = "*.R") %>%
   walk(source)
 
 usethis::use_data(
+  game_list,
   jumble_checklist, jumble_wordlist,
   spelling_bee_wordlist,
   internal = TRUE, overwrite = TRUE, compress = "xz"
@@ -15,6 +16,7 @@ usethis::use_data(
 
 rm(
   list = c(
+    "game_list",
     "jumble_checklist", "jumble_wordlist",
     "spelling_bee_wordlist"
   )

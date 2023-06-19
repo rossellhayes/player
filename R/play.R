@@ -47,16 +47,6 @@ play <- function(game = NULL, ...) {
   do.call(get(paste0("play_", game), asNamespace("play")), list(...))
 }
 
-game_list <- c(
-  "Hangman",
-  "Jumble",
-  "Magic 8 Ball",
-  "Poker",
-  "Spelling Bee",
-  "2048",
-  "Global Thermonuclear War"
-)
-
 resume <- function(game) {
   if (is.null(game_env[[game]])) {
     stop("No ongoing ", game, " game to resume.", call. = FALSE)
