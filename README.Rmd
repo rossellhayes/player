@@ -1,0 +1,41 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# play
+
+<!-- badges: start -->
+`r badger::badge_github_version(color = "brightgreen")`
+`r badger::badge_lifecycle("experimental")`
+`r badger::badge_license("MIT", color = "blueviolet")`
+<!-- badges: end -->
+
+## Installation
+
+You can install the [development version of **play**](https://github.com/rossellhayes/play) from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("pak")
+pak::pkg_install("rossellhayes/play")
+```
+
+## Games
+
+**play** includes `r length(play:::game_list)` games that you can play entirely within the R console:
+
+```{r echo = FALSE, results = "asis"}
+cat(paste("*", play:::game_list, collapse = "\n"))
+```
+
+Install the package and run `play::play()` to get playing!
