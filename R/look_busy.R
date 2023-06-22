@@ -194,7 +194,7 @@ status_messages <- list(
   "Staring out window",
   "Pondering the universality of impermanence",
 
-  # Thanks to Steven Smallberg
+  # Thanks to Steven Smallberg (@stevensmallberg)
   "Accounting for the curvature of the earth",
   "Adding hidden layers",
   "Blowing on the cartridge",
