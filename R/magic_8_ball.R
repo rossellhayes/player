@@ -1,3 +1,15 @@
+#' Ask a Magic 8 Ball a question in the console
+#'
+#' @param question A character string.
+#'  Ask the Magic 8 Ball anything your heart desires.
+#'  If [`NULL`], the default, you will be prompted to type a question
+#'  interactively in the console.
+#'
+#' @return A character string answering your `question`.
+#' @export
+#'
+#' @examples
+#' play_magic_8_ball("Will I ever find love?")
 play_magic_8_ball <- function(question = NULL) {
   cli::cli_h1(cli::col_magenta("\U1F3B1 Magic 8 Ball \U1F3B1"))
 
@@ -29,7 +41,11 @@ magic_8_ball <- function() {
 
   Sys.sleep(0.5)
 
-  cli::cli_text(cli::col_magenta(sample(magic_8_ball_responses, 1)))
+  response <- sample(magic_8_ball_responses, 1)
+
+  cli::cli_text(cli::col_magenta(response))
+
+  invisible(response)
 }
 
 magic_8_ball_responses <- c(
