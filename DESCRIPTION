@@ -30,14 +30,12 @@ Imports:
     R6,
     rlang,
     stats,
+    twenty48 (>= 0.2.1),
     utils,
     withr
 Suggests: 
     job,
-    rstudioapi,
-    twenty48 (>= 0.2.1)
-Remotes: 
-    rossellhayes/twenty48
+    rstudioapi
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

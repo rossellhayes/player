@@ -39,12 +39,7 @@ play <- function(game = NULL, ...) {
     return(invisible())
   }
 
-  if (game == "2048") {
-    rlang::check_installed("twenty48", "to play 2048.")
-    return(twenty48::play_2048())
-  }
-
-  do.call(get(paste0("play_", game), asNamespace("play")), list(...))
+  get(paste0("play_", game), envir = asNamespace("play"))(...)
 }
 
 resume <- function(game) {

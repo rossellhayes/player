@@ -2,8 +2,10 @@
 
 export(look_busy)
 export(play)
+export(play_2048)
 export(play_hangman)
 export(play_jumble)
 export(play_poker)
 export(play_spelling_bee)
 importFrom(R6,R6Class)
+importFrom(twenty48,play_2048)
