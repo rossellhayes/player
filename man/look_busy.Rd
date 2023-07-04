@@ -37,3 +37,15 @@ Look like you're working hard when you're hardly working
 \examples{
 look_busy()
 }
+\author{
+Alexander Rossell Hayes \email{alexander@rossellhayes.com}
+(\href{https://orcid.org/0000-0001-9412-0457}{ORCID})
+
+With status messages contributed by:
+\itemize{
+\item Kristin Bott \email{kristin.bott@posit.co}
+\item Daniel Chen \email{daniel.chen@posit.co}
+(\href{https://orcid.org/0000-0003-3857-1741}{ORCID})
+\item Steven Smallberg \email{steven.smallberg@posit.co}
+}
+}

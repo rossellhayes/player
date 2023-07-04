@@ -1,5 +1,15 @@
 #' Look like you're working hard when you're hardly working
 #'
+#' @author Alexander Rossell Hayes \email{alexander@rossellhayes.com}
+#'   ([ORCID](https://orcid.org/0000-0001-9412-0457))
+#'
+#'   With status messages contributed by:
+#'
+#'   - Kristin Bott \email{kristin.bott@posit.co}
+#'   - Daniel Chen \email{daniel.chen@posit.co}
+#'     ([ORCID](https://orcid.org/0000-0003-3857-1741))
+#'   - Steven Smallberg \email{steven.smallberg@posit.co}
+#'
 #' @param minutes How long to keep this up for.
 #'   Defaults to `Inf`, which runs forever.
 #' @param speed How fast to produce output.
