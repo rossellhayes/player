@@ -10,6 +10,7 @@ Authors@R: c(
            comment = "Word lists"),
     person("Luis", "Von Ahn", role = "dtc",
            comment = "Word lists"),
+    person("Flavia", "Rossell Hayes", , , role = "ill"),
     person("Kristin", "Bott", , "kristin.bott@posit.co", role = "ctb",
            comment = "look_busy() status messages"),
     person("Daniel", "Chen", , "daniel.chen@posit.co", role = "ctb",

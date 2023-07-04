@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# play
+# play <img src="man/figures/logo.png?raw=TRUE" align="right" height="138" />
 
 <!-- badges: start -->
 `r badger::badge_github_version(color = "brightgreen")`
@@ -39,3 +39,7 @@ cat(paste("*", play:::game_list, collapse = "\n"))
 ```
 
 Install the package and run `play::play()` to get playing!
+
+---
+
+Hex sticker image by Flavia Rossell Hayes.

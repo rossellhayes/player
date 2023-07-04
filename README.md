@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# play
+# play <img src="man/figures/logo.png?raw=TRUE" align="right" height="138" />
 
 <!-- badges: start -->
 
@@ -36,3 +36,7 @@ console:
 - Global Thermonuclear War
 
 Install the package and run `play::play()` to get playing!
+
+------------------------------------------------------------------------
+
+Hex sticker image by Flavia Rossell Hayes.
