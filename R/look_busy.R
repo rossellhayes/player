@@ -173,6 +173,9 @@ status_messages <- list(
   "Mining bitcoin",
   "Approaching infinity",
   "Bogo sorting",
+  "Rolling dice",
+  "Shaking a magic 8 ball",
+  "Envisioning success",
 
   # Thanks to Daniel Chen (@chendaniely)
   "Opening the pod bay doors",
