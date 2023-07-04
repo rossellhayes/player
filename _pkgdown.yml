@@ -1,0 +1,21 @@
+url: http://pkg.rossellhayes.com/play
+template:
+  bootstrap: 5
+
+reference:
+- title: Use an interactive menu to play games
+  contents:
+  - play
+- title: Games
+  contents:
+  - play_hangman
+  - play_magic_8_ball
+  - play_jumble
+  - play_poker
+  - play_spelling_bee
+- title: Games reexported from other packages
+  contents:
+  - play_2048
+- title: Miscellaneous
+  contents:
+  - look_busy
