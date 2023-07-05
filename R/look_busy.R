@@ -29,7 +29,7 @@
 #' @examples
 #' look_busy()
 look_busy <- function(
-  minutes = Inf,
+  minutes = if (rlang::is_interactive()) Inf else 0,
   speed = 1,
   background_job = FALSE,
   end = invisible(NULL)
