@@ -1,4 +1,4 @@
-remotes::install_github("rossellhayes/words")
+pak::pkg_install("rossellhayes/words", ask = FALSE)
 
 library(dplyr)
 library(tibble)
