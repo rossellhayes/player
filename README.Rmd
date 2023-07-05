@@ -35,7 +35,7 @@ pak::pkg_install("rossellhayes/play")
 **play** includes `r length(play:::game_list)` games that you can play entirely within the R console:
 
 ```{r echo = FALSE, results = "asis"}
-cat(paste("*", play:::game_list, collapse = "\n"))
+cat(paste("*", names(play:::game_list), collapse = "\n"))
 ```
 
 Install the package and run `play::play()` to get playing!

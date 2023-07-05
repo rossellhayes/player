@@ -24,13 +24,14 @@ pak::pkg_install("rossellhayes/play")
 
 ## Games
 
-**play** includes 7 games that you can play entirely within the R
+**play** includes 8 games that you can play entirely within the R
 console:
 
 - Hangman
 - Jumble
 - Magic 8 Ball
 - Poker
+- Shut the Box
 - Spelling Bee
 - 2048
 - Global Thermonuclear War
