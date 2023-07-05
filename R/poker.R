@@ -45,7 +45,9 @@
 #' play_poker(colors = 1)
 
 play_poker <- function(colors = c(2, 4, 1)) {
-  if (!interactive()) {return(invisible(NULL))}
+  if (!rlang::is_interactive()) {
+    return(invisible(NULL))
+  }
 
   if (!is.null(game_env$poker) && ask_resume("poker")) {
     if (length(colors) == 1) {game_env$poker$colors <- colors}

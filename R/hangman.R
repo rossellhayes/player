@@ -42,7 +42,9 @@ play_hangman <- function(
   difficulty = c("beginner", "easy", "medium", "hard", "expert"),
   word_list = NULL
 ) {
-  if (!interactive()) {return(invisible(NULL))}
+  if (!rlang::is_interactive()) {
+    return(invisible(NULL))
+  }
 
   if (
     !is.null(game_env$hangman) &&
@@ -118,7 +120,9 @@ Hangman <- R6::R6Class(
     },
 
     print = function() {
-      if (!interactive()) {return(invisible(NULL))}
+      if (!rlang::is_interactive()) {
+        return(invisible(NULL))
+      }
 
       clear_console()
       cli::cli_h1("\U1FAA2 Hangman \U1FAA2")

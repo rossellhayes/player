@@ -17,7 +17,9 @@
 #' @examples
 #' play_shut_the_box()
 play_shut_the_box <- function() {
-  if (!interactive()) {return(invisible(NULL))}
+  if (!rlang::is_interactive()) {
+    return(invisible(NULL))
+  }
 
   if (!is.null(game_env$shut_the_box) && ask_resume("shut_the_box")) {
     return(resume("shut_the_box"))

@@ -31,7 +31,9 @@
 #' play_spelling_bee()
 
 play_spelling_bee <- function() {
-  if (!interactive()) {return(invisible(NULL))}
+  if (!rlang::is_interactive()) {
+    return(invisible(NULL))
+  }
 
   if (!is.null(game_env$spelling_bee) && !game_env$spelling_bee$game_over) {
     return(resume("spelling_bee"))
@@ -54,7 +56,9 @@ Spelling_Bee <- R6::R6Class(
     },
 
     print = function() {
-      if (!interactive()) {return(invisible(NULL))}
+      if (!rlang::is_interactive()) {
+        return(invisible(NULL))
+      }
 
       clear_console()
 
