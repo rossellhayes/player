@@ -18,26 +18,30 @@ input <- function(prompt = "> ", transform = tolower) {
   transform(readline(prompt = prompt))
 }
 
-choose_menu <- function(options, title = NULL, transform = identity) {
+choose_menu <- function(options, title = NULL) {
   if (!is.null(title)) cli::cli_text(title)
-  cli::cli_ol(options)
+
+  if (!rlang::is_named(options)) names(options) <- options
+
+  cli::cli_ol(names(options))
   cli::cat_line()
-  input <- input("Selection: ")
 
-  if (input %in% seq_along(options)) {
-    return(transform(options[[as.numeric(input)]]))
-  }
+  repeat {
+    input <- input("Selection: ")
 
-  fuzzy_match <- grep(input, options, ignore.case = TRUE)
-  if (length(fuzzy_match) == 1) {
-    return(transform(options[fuzzy_match]))
-  }
+    if (input %in% seq_along(options)) {
+      return(options[[as.numeric(input)]])
+    }
 
-  cli::cli_text("I didn't understand that input.")
-  cli::cli_text(
-    "Please enter a digit ({.or {seq_along(options)}})
+    fuzzy_match <- grep(input, options, ignore.case = TRUE)
+    if (length(fuzzy_match) == 1) {
+      return(options[fuzzy_match])
+    }
+
+    cli::cli_text("I didn't understand that input.")
+    cli::cli_text(
+      "Please enter a digit ({.or {seq_along(options)}})
     or a command ({.or {options}})."
-  )
-
-  choose_menu()
+    )
+  }
 }

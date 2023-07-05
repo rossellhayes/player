@@ -26,10 +26,10 @@ game_env <- new.env()
 #' play("2048", size = 5)
 
 play <- function(game = NULL, ...) {
-  if (is.null(game) || !tolower(game) %in% tolower(game_list)) {
-    if (!interactive()) {return(invisible(NULL))}
-
-    game_list <- c(game_list, "Quit")
+  if (!rlang::is_interactive() || length(game) == 1) {
+    game <- rlang::arg_match(game, game_list)
+  } else {
+    game_list <- c(game_list, "Quit" = "quit")
     game <- choose_menu(game_list, title = "Choose a game:")
   }
 
