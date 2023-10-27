@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# play <img src="man/figures/logo.png?raw=TRUE" align="right" height="138" />
+# player <img src="man/figures/logo.png?raw=TRUE" align="right" height="138" />
 
 <!-- badges: start -->
 `r badger::badge_github_version(color = "brightgreen")`
@@ -23,22 +23,22 @@ knitr::opts_chunk$set(
 
 ## Installation
 
-You can install the [development version of **play**](https://github.com/rossellhayes/play) from [GitHub](https://github.com/) with:
+You can install the [development version of **player**](https://github.com/rossellhayes/player) from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
-pak::pkg_install("rossellhayes/play")
+pak::pkg_install("rossellhayes/player")
 ```
 
 ## Games
 
-**play** includes `r length(play:::game_list)` games that you can play entirely within the R console:
+**player** includes `r length(player:::game_list)` games that you can player entirely within the R console:
 
 ```{r echo = FALSE, results = "asis"}
-cat(paste("*", names(play:::game_list), collapse = "\n"))
+cat(paste("*", names(player:::game_list), collapse = "\n"))
 ```
 
-Install the package and run `play::play()` to get playing!
+Install the package and run `player::play()` to get playing!
 
 ---
 

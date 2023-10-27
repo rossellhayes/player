@@ -1,11 +1,11 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# play <img src="man/figures/logo.png?raw=TRUE" align="right" height="138" />
+# player <img src="man/figures/logo.png?raw=TRUE" align="right" height="138" />
 
 <!-- badges: start -->
 
-[![](https://img.shields.io/badge/devel%20version-0.0.0.9000-brightgreen.svg)](https://github.com/rossellhayes/play)
+[![](https://img.shields.io/badge/devel%20version-0.0.0.9000-brightgreen.svg)](https://github.com/rossellhayes/player)
 [![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![License:
 MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://cran.r-project.org/web/licenses/MIT)
@@ -14,17 +14,17 @@ MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://cran.r-pr
 ## Installation
 
 You can install the [development version of
-**play**](https://github.com/rossellhayes/play) from
+**player**](https://github.com/rossellhayes/player) from
 [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
-pak::pkg_install("rossellhayes/play")
+pak::pkg_install("rossellhayes/player")
 ```
 
 ## Games
 
-**play** includes 8 games that you can play entirely within the R
+**player** includes 8 games that you can player entirely within the R
 console:
 
 - Hangman
@@ -36,7 +36,7 @@ console:
 - 2048
 - Global Thermonuclear War
 
-Install the package and run `play::play()` to get playing!
+Install the package and run `player::play()` to get playing!
 
 ------------------------------------------------------------------------
 

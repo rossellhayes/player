@@ -1,4 +1,4 @@
-Package: play
+Package: player
 Title: Play games in the console
 Version: 0.0.0.9000
 Authors@R: c(
@@ -21,8 +21,8 @@ Authors@R: c(
 Description: Includes a number of games that can be played in the R
     console.
 License: MIT + file LICENSE
-URL: https://github.com/rossellhayes/play
-BugReports: https://github.com/rossellhayes/play/issues
+URL: https://github.com/rossellhayes/player
+BugReports: https://github.com/rossellhayes/player/issues
 Depends: 
     R (>= 2.10)
 Imports: 
