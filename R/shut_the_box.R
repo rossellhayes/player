@@ -171,7 +171,6 @@ ShutTheBox <- R6::R6Class(
         "Press {.key ENTER} to play again or {.key ESC} to quit."
       )
       input <- input()
-      if (input == "q") quit_game()
       private$replay()
     },
 
