@@ -39,7 +39,7 @@ play <- function(game = NULL, ...) {
     return(invisible())
   }
 
-  get(paste0("play_", game), envir = asNamespace("play"))(...)
+  get(paste0("play_", game), envir = asNamespace("player"))(...)
 }
 
 resume <- function(game) {
