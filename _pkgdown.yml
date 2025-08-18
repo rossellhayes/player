@@ -1,4 +1,4 @@
-url: http://pkg.rossellhayes.com/player
+url: https://pkg.rossellhayes.com/player
 template:
   bootstrap: 5
 
@@ -12,6 +12,7 @@ reference:
   - play_magic_8_ball
   - play_jumble
   - play_poker
+  - play_shut_the_box
   - play_spelling_bee
 - title: Games reexported from other packages
   contents:
