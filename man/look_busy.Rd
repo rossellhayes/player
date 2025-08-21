@@ -7,6 +7,7 @@
 look_busy(
   minutes = if (rlang::is_interactive()) Inf else 0,
   speed = 1,
+  lambda = 3,
   background_job = FALSE,
   end = invisible(NULL)
 )
