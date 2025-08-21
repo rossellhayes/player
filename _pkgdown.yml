@@ -12,6 +12,7 @@ reference:
   - play_magic_8_ball
   - play_jumble
   - play_poker
+  - play_rock_paper_scissors
   - play_shut_the_box
   - play_spelling_bee
 - title: Games reexported from other packages
