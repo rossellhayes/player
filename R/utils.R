@@ -45,3 +45,11 @@ choose_menu <- function(options, title = NULL) {
     )
   }
 }
+
+map_chr <- function(.x, .f, ...) {
+  vapply(.x, .f, character(1), ...)
+}
+
+cat0 <- function(...) cat(..., sep = "")
+cat_line <- function(...) cat0("\n", ...)
+cat_over <- function(...) cat0("\r", ...)

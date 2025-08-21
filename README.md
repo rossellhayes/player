@@ -24,13 +24,14 @@ pak::pkg_install("rossellhayes/player")
 
 ## Games
 
-**player** includes 8 games that you can player entirely within the R
+**player** includes 9 games that you can player entirely within the R
 console:
 
 - Hangman
 - Jumble
 - Magic 8 Ball
 - Poker
+- Rock, Paper, Scissors
 - Shut the Box
 - Spelling Bee
 - 2048

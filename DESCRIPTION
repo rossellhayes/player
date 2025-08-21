@@ -10,7 +10,7 @@ Authors@R: c(
            comment = "Word lists"),
     person("Luis", "Von Ahn", role = "dtc",
            comment = "Word lists"),
-    person("Flavia", "Rossell Hayes", , , role = "ill"),
+    person("Flavia", "Rossell Hayes", role = "ill"),
     person("Kristin", "Bott", , "kristin.bott@posit.co", role = "ctb",
            comment = "look_busy() status messages"),
     person("Daniel", "Chen", , "daniel.chen@posit.co", role = "ctb",
@@ -24,19 +24,26 @@ License: MIT + file LICENSE
 URL: https://github.com/rossellhayes/player
 BugReports: https://github.com/rossellhayes/player/issues
 Depends: 
-    R (>= 2.10)
+    R (>= 3.5)
 Imports: 
     cli,
     crayon,
+    dplyr,
+    nnet,
+    plu,
     R6,
     rlang,
     stats,
+    stringr,
+    tools,
     twenty48 (>= 0.2.1),
     utils,
     withr
 Suggests: 
     job,
-    rstudioapi
+    rstudioapi,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
