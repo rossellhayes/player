@@ -90,7 +90,9 @@ rps_record_default <- data.frame(
 #' @export
 #'
 #' @examples
-#' play_rock_paper_scissors()
+#' play_rock_paper_scissors("rock")
+#'
+#' if (rlang::is_interactive()) play_rock_paper_scissors()
 play_rock_paper_scissors <- function(
   selection = c(NA, "rock", "paper", "scissors"),
   predict = TRUE,
@@ -117,6 +119,10 @@ play_rock_paper_scissors <- function(
     player_selection <- pmatch(player_selection, options)
 
     if (player_selection %in% 1:3) break
+
+    if (!rlang::is_interative()) {
+      cli::cli_abort("{.arg selection} must be one of {.value {.or {c('rock', 'paper', 'scissors')}}}.")
+    }
 
     player_selection <- input("Will you throw [r]ock, [p]aper, or [s]cissors? ")
     cat("\b\b\r")
@@ -237,7 +243,9 @@ play_rock_paper_scissors <- function(
     cat_line()
   }
 
-  play_rock_paper_scissors(selection, predict = predict, animate = animate)
+  if (rlang::is_interactive()) {
+    play_rock_paper_scissors(selection, predict = predict, animate = animate)
+  }
 }
 
 rps_center_message <- function(message) {

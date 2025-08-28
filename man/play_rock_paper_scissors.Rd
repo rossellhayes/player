@@ -25,5 +25,7 @@ before revealing what you and the computer throw.}
 Play a game of rock, paper, scissors in the console
 }
 \examples{
-play_rock_paper_scissors()
+play_rock_paper_scissors("rock")
+
+if (rlang::is_interactive()) play_rock_paper_scissors()
 }
