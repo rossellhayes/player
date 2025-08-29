@@ -31,6 +31,7 @@
 look_busy <- function(
   minutes = if (rlang::is_interactive()) Inf else 0,
   speed = 1,
+  lambda = 3,
   background_job = FALSE,
   end = invisible(NULL)
 ) {
@@ -65,8 +66,9 @@ look_busy <- function(
 
   job::job(
     {
-      look_busy_internal(minutes, speed)
+      look_busy_internal(minutes, speed, lambda)
       rlang::eval_bare(end)
+      job::export(NULL)
     },
     title = "Performing an intensive analysis...",
     import = "all",
@@ -74,7 +76,7 @@ look_busy <- function(
   )
 }
 
-look_busy_internal <- function(minutes, speed) {
+look_busy_internal <- function(minutes, speed = 1, lambda = 3) {
   shuffled_status_messages <- paste0(shuffle(status_messages), "...")
 
   i <- 1
@@ -89,7 +91,7 @@ look_busy_internal <- function(minutes, speed) {
     }
     Sys.sleep(stats::runif(1, 1, 5) * (1/speed))
 
-    for (j in seq_len(1 + stats::rpois(1, 3))) {
+    for (j in seq_len(stats::rpois(1, lambda))) {
       variable <- sample(variables, 1)
       variables <- unique(c(
         variables,
