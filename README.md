@@ -24,9 +24,10 @@ pak::pkg_install("rossellhayes/player")
 
 ## Games
 
-**player** includes 9 games that you can player entirely within the R
+**player** includes 10 games that you can player entirely within the R
 console:
 
+- Coin Flip
 - Hangman
 - Jumble
 - Magic 8 Ball
