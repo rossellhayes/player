@@ -9,7 +9,7 @@ pressing enter."><meta property="og:image" content="https://pkg.rossellhayes.com
 
     <a class="navbar-brand me-2" href="../index.html">player</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,26 +63,11 @@ If <code>NULL</code>, you can choose a game interactively in the console.</p></d
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">play</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in play():</span> `game` must be a character vector, not `NULL`.</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/is_interactive.html" class="external-link">is_interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="fu">play</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">play</span><span class="op">(</span><span class="st">"poker"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in arg_match0(arg, values, error_arg, error_call = error_call):</span> `values` must be a character vector.</span>
-<span class="r-in"><span><span class="fu">play</span><span class="op">(</span><span class="st">"hangman"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in arg_match0(arg, values, error_arg, error_call = error_call):</span> `values` must be a character vector.</span>
-<span class="r-in"><span><span class="fu">play</span><span class="op">(</span><span class="st">"jumble"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in arg_match0(arg, values, error_arg, error_call = error_call):</span> `values` must be a character vector.</span>
-<span class="r-in"><span><span class="fu">play</span><span class="op">(</span><span class="st">"2048"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in arg_match0(arg, values, error_arg, error_call = error_call):</span> `values` must be a character vector.</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">play</span><span class="op">(</span><span class="st">"poker"</span>, colors <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in arg_match0(arg, values, error_arg, error_call = error_call):</span> `values` must be a character vector.</span>
-<span class="r-in"><span><span class="fu">play</span><span class="op">(</span><span class="st">"hangman"</span>, difficulty <span class="op">=</span> <span class="st">"easy"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in arg_match0(arg, values, error_arg, error_call = error_call):</span> `values` must be a character vector.</span>
-<span class="r-in"><span><span class="fu">play</span><span class="op">(</span><span class="st">"jumble"</span>, difficulty <span class="op">=</span> <span class="st">"hard"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in arg_match0(arg, values, error_arg, error_call = error_call):</span> `values` must be a character vector.</span>
-<span class="r-in"><span><span class="fu">play</span><span class="op">(</span><span class="st">"2048"</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in arg_match0(arg, values, error_arg, error_call = error_call):</span> `values` must be a character vector.</span>
+<span class="r-in"><span><span class="fu">play</span><span class="op">(</span><span class="st">"magic_8_ball"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="color: #BB00BB;">🎱 Magic 8 Ball 🎱</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────────────</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB00BB;">▲</span><span style="color: #BB00BB;">▲</span><span style="color: #BB00BB;">▲▼</span><span style="color: #BB00BB;">▲▼▶</span><span style="color: #BB00BB;">▲▼▶▲</span><span style="color: #BB00BB;">▲▼▶▲</span><span style="color: #BB00BB;">▲▼▶▲▼</span><span style="color: #BB00BB;">▲▼▶▲▼▶</span><span style="color: #BB00BB;">▲▼▶▲▼▶▲</span><span style="color: #BB00BB;">▲▼▶▲▼▶▲</span><span style="color: #BB00BB;">▲▼▶▲▼▶▲▼</span><span style="color: #BB00BB;">▲▼▶▲▼▶▲▼▶</span><span style="color: #BB00BB;">Most likely.</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

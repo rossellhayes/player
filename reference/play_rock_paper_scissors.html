@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">player</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +40,8 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">play_rock_paper_scissors</span><span class="op">(</span></span>
 <span>  selection <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="st">"rock"</span>, <span class="st">"paper"</span>, <span class="st">"scissors"</span><span class="op">)</span>,</span>
 <span>  predict <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  animate <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  animate <span class="op">=</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/is_interactive.html" class="external-link">is_interactive</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  header <span class="op">=</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/is_interactive.html" class="external-link">is_interactive</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -61,18 +62,23 @@ predict what you will throw and try to beat you.</p></dd>
 
 <dt id="arg-animate">animate<a class="anchor" aria-label="anchor" href="#arg-animate"></a></dt>
 <dd><p>If <code>TRUE</code>, play a "rock, paper, scissors, shoot!" animation
-before revealing what you and the computer throw.</p></dd>
+before revealing what you and the computer throw.
+Defaults to <code>TRUE</code> if the session is <a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a> and <code>FALSE</code> otherwise.</p></dd>
+
+
+<dt id="arg-header">header<a class="anchor" aria-label="anchor" href="#arg-header"></a></dt>
+<dd><p>If <code>TRUE</code>, prints a header for the game.
+Defaults to <code>TRUE</code> if the session is <a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a> and <code>FALSE</code> otherwise.</p></dd>
 
 </dl></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">play_rock_paper_scissors</span><span class="op">(</span><span class="st">"rock"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                Rock ✊   🪨 Rock                                                              Paper ✋   📄 Paper                                                          Scissors ✌️   ✂️ Scissors                                                         Shoot! 👉   🔫 Shoot!                                                                                                                                             Rock ✊   📄 Paper                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                Rock ✊   📄 Paper                               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                     You lose                                    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         I predicted you would throw: 33% scissors, 33% paper, 33% rock.         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       Your record: 0 wins, 1 loss, 0 ties.                      Press ENTER to play again or ESC to quit. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                       Your record: 0 wins, 1 loss, 0 ties.                      </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/is_interactive.html" class="external-link">is_interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="fu">play_rock_paper_scissors</span><span class="op">(</span><span class="op">)</span></span></span>
 </code></pre></div>
