@@ -233,17 +233,17 @@ play_rock_paper_scissors <- function(
 
   cat_line(rps_center_message(record_message))
 
-  selection <- input("Press ENTER to play again or ESC to quit. ")
-  cat("\b\b\r                                          ")
-
-  if (!nzchar(selection)) {
-    selection <- NA
-  } else {
-    cat(" ", strrep(" ", stringr::str_width(selection)))
-    cat_line()
-  }
-
   if (rlang::is_interactive()) {
+    selection <- input("Press ENTER to play again or ESC to quit. ")
+    cat("\b\b\r                                          ")
+
+    if (!nzchar(selection)) {
+      selection <- NA
+    } else {
+      cat(" ", strrep(" ", stringr::str_width(selection)))
+      cat_line()
+    }
+
     play_rock_paper_scissors(selection, predict = predict, animate = animate)
   }
 }

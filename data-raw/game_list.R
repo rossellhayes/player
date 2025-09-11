@@ -1,4 +1,5 @@
 game_list <- rlang::list2(
+  "Coin Flip" = "coin_flip",
   "Hangman" = "hangman",
   "Jumble" = "jumble",
   "Magic 8 Ball" = "magic_8_ball",
