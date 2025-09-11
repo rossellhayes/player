@@ -190,13 +190,17 @@ print_tiles <- function(up) {
     is_up <- up_rle$values[[i]]
 
     top[[i]] <- if (is_up) {
-      paste0("┌", paste(rep("─", length(tiles[[i]])), collapse = "┬"), "┐")
+      paste0(
+        "\u250c",
+        paste(rep("\u2500", length(tiles[[i]])), collapse = "\u252c"),
+        "\u2510"
+      )
     } else {
       paste(rep(" ", length(tiles[[i]])), collapse = " ")
     }
 
     middle[[i]] <- if (is_up) {
-      paste(c("", tiles[[i]], ""), collapse = "│")
+      paste(c("", tiles[[i]], ""), collapse = "\u2502")
     } else {
       paste(rep(" ", length(tiles[[i]])), collapse = " ")
     }
@@ -207,7 +211,11 @@ print_tiles <- function(up) {
     middle <- c(" ", middle)
   }
 
-  bottom <- paste0("└", paste(rep("─", 9), collapse = "┴"), "┘")
+  bottom <- paste0(
+    "\u2514",
+    paste(rep("\u2500", 9), collapse = "\u2534"),
+    "\u2518"
+  )
 
   cat(
     paste(top, collapse = ""),
@@ -222,7 +230,7 @@ print_dice <- function(x, prefix = NULL, roll = FALSE, ...) {
     for (i in seq_len(60)) {
       random_dice <- sample(1:6, length(x), replace = TRUE)
       message <- paste0(prefix, paste(random_dice, collapse = " "))
-      cat_over("\b", message)
+      cat_over(message)
       Sys.sleep(1/60)
       cat_over(strrep(" ", stringr::str_width(message)))
     }

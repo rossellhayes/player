@@ -20,15 +20,7 @@ Interact with the game by typing commands into the console and
 pressing enter.
 }
 \examples{
-play()
+if (rlang::is_interactive()) play()
 
-play("poker")
-play("hangman")
-play("jumble")
-play("2048")
-
-play("poker", colors = 4)
-play("hangman", difficulty = "easy")
-play("jumble", difficulty = "hard")
-play("2048", size = 5)
+play("magic_8_ball")
 }

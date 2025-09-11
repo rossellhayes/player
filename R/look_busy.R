@@ -16,6 +16,9 @@
 #'   The default value, `1`,
 #'   takes between 0.1 and 0.5 seconds to produce a calculation
 #'   and between 1 and 5 seconds to produce a status update.
+#' @param lambda Input to a poisson distribution determining how many
+#'   calculations to perform between each message.
+#'   Defaults to `3`.
 #' @param background_job Whether to produce output in in a background job
 #'   (if `TRUE`) or the console (if `FALSE`).
 #'   Defaults to `FALSE`.
@@ -104,7 +107,7 @@ look_busy_internal <- function(minutes, speed = 1, lambda = 3) {
       ))
 
       result <- signif(1000 ^ stats::rnorm(1), 1 + stats::rpois(1, 3))
-      if (result > 1 & runif(1) > 1/4) result <- round(result)
+      if (result > 1 & stats::runif(1) > 1/4) result <- round(result)
 
       cat_tnl(variable, " = ", result)
 

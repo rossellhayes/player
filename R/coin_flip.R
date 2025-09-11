@@ -91,24 +91,25 @@ coin_flip_animation <- function(coins) {
   n <- length(coins)
 
   cat_over(strrep("  ", n), strrep("  ", n), strrep("\u2b2d ", n), sep = "\n")
-  flush.console()
+  utils::flush.console()
   Sys.sleep(0.1)
 
   cat(strrep("\b", n * 6 + 3))
   cat(strrep("  ", n), strrep("\u2500 ", n), strrep("  ", n), sep = "\n")
-  flush.console()
+  utils::flush.console()
   Sys.sleep(0.1)
 
   cat(strrep("\b", n * 6 + 3))
   cat(strrep("\u2b2d ", n), strrep("  ", n), strrep("  ", n), sep = "\n")
-  flush.console()
+  utils::flush.console()
   Sys.sleep(0.1)
 
   cat(strrep("\b", n * 6 + 3))
   cat(strrep("  ", n), strrep("\u2500 ", n), strrep("  ", n), sep = "\n")
+  utils::flush.console()
   Sys.sleep(0.1)
 
   cat(strrep("\b", n * 6 + 3))
   cat(strrep("  ", n), strrep("  ", n), paste(coins, collapse = " "), sep = "\n")
-  flush.console()
+  utils::flush.console()
 }

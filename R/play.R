@@ -13,21 +13,13 @@ game_env <- new.env()
 #' @export
 #'
 #' @examples
-#' play()
+#' if (rlang::is_interactive()) play()
 #'
-#' play("poker")
-#' play("hangman")
-#' play("jumble")
-#' play("2048")
-#'
-#' play("poker", colors = 4)
-#' play("hangman", difficulty = "easy")
-#' play("jumble", difficulty = "hard")
-#' play("2048", size = 5)
+#' play("magic_8_ball")
 
 play <- function(game = NULL, ...) {
   if (!rlang::is_interactive() || length(game) == 1) {
-    game <- rlang::arg_match(game, game_list)
+    game <- rlang::arg_match(game, as.character(game_list))
   } else {
     game_list <- c(game_list, "Quit" = "quit")
     game <- choose_menu(game_list, title = "Choose a game:")

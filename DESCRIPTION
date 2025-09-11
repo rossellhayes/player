@@ -18,9 +18,9 @@ Authors@R: c(
     person("Steven", "Smallberg", , "steven.smallberg@posit.co", role = "ctb",
            comment = "look_busy() status messages")
   )
-Description: Games that can be played in the R console.
-    Includes coin flip, hangman, jumble, magic 8 ball, poker,
-    rock paper scissors, shut the box, spelling bee, and 2048.
+Description: Games that can be played in the R console.  Includes coin
+    flip, hangman, jumble, magic 8 ball, poker, rock paper scissors, shut
+    the box, spelling bee, and 2048.
 License: MIT + file LICENSE
 URL: https://github.com/rossellhayes/player
 BugReports: https://github.com/rossellhayes/player/issues
@@ -34,6 +34,7 @@ Imports:
     glue,
     nnet,
     plu,
+    purrr,
     R6,
     rlang,
     stats,

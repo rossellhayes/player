@@ -57,11 +57,13 @@ map_chr <- function(.x, .f, ...) {
   vapply(.x, .f, character(1), ...)
 }
 
+#' @importFrom and or
+
 cat0 <- function(...) cat(..., sep = "")
 cat_pnl <- function(...) cat0("\n", ...)
 cat_tnl <- function(...) cat0(..., "\n")
 cat_ptnl <- function(...) cat0("\n", ..., "\n")
-cat_over <- function(..., sep = "") cat("\r", paste(..., sep = sep))
+cat_over <- function(..., sep = "") cat("\r", paste(..., sep = sep), sep = "")
 cat_over_tnl <- function(...) cat0("\r", ..., "\n")
 cat_blank_line <- function() cat_tnl()
 

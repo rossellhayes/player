@@ -1,15 +1,15 @@
 rock_paper_scissors_hands <- c(
-  "Rock" = "✊",
-  "Paper" = "✋",
-  "Scissors" = "✌️",
-  "Shoot!" = "👉"
+  "Rock" = "\u270a",
+  "Paper" = "\u270b",
+  "Scissors" = "\u270c\ufe0f",
+  "Shoot!" = "\U0001f449"
 )
 
 rock_paper_scissors_icons <- c(
-  "Rock" = "🪨",
-  "Paper" = "📄",
-  "Scissors" = "✂️",
-  "Shoot!" = "🔫"
+  "Rock" = "\U0001faa8",
+  "Paper" = "\U0001f4c4",
+  "Scissors" = "\u2702\ufe0f",
+  "Shoot!" = "\U0001f52b"
 )
 
 rps_throw <- function(shape, thrower) {
@@ -143,7 +143,7 @@ play_rock_paper_scissors <- function(
   if (!isTRUE(predict)) {
     computer_selection <- sample(1:3, 1)
   } else {
-    capture.output(
+    utils::capture.output(
       model <- try(
         nnet::multinom(
           dplyr::lead(player) ~ player * computer + lag(player) * lag(computer),
@@ -155,7 +155,7 @@ play_rock_paper_scissors <- function(
     )
 
     if (!inherits(model, "multinom")) {
-      capture.output(
+      utils::capture.output(
         model <- try(
           nnet::multinom(
             dplyr::lead(player) ~ player * computer,

@@ -17,10 +17,10 @@
 play_magic_8_ball <- function(question = NULL, header = rlang::is_interactive()) {
   h1("\U1F3B1 Magic 8 Ball \U1F3B1")
 
-  if (is.null(question) & rlang::is_interactive()) {
+  if (is.null(question) && rlang::is_interactive()) {
     cat_tnl("What is your question?")
     input("Question: ")
-  } else {
+  } else if (!is.null(question)) {
     cat_tnl("Question: ", question)
   }
 

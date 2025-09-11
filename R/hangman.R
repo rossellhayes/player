@@ -25,6 +25,7 @@
 #' @aliases hangman
 #' @export
 #' @importFrom R6 R6Class
+#' @importFrom crayon silver
 #'
 #' @examples
 #' play_hangman()

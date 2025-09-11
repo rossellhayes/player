@@ -21,6 +21,10 @@ The default value, \code{1},
 takes between 0.1 and 0.5 seconds to produce a calculation
 and between 1 and 5 seconds to produce a status update.}
 
+\item{lambda}{Input to a poisson distribution determining how many
+calculations to perform between each message.
+Defaults to \code{3}.}
+
 \item{background_job}{Whether to produce output in in a background job
 (if \code{TRUE}) or the console (if \code{FALSE}).
 Defaults to \code{FALSE}.
