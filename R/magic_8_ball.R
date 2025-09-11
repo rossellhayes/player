@@ -11,7 +11,7 @@
 #' @examples
 #' play_magic_8_ball("Will I ever find love?")
 play_magic_8_ball <- function(question = NULL) {
-  cli::cli_h1(cli::col_magenta("\U1F3B1 Magic 8 Ball \U1F3B1"))
+  h1("\U1F3B1 Magic 8 Ball \U1F3B1")
 
   if (is.null(question)) {
     cli::cli_text("What is your question?")

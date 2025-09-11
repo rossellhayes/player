@@ -53,3 +53,19 @@ map_chr <- function(.x, .f, ...) {
 cat0 <- function(...) cat(..., sep = "")
 cat_line <- function(...) cat0("\n", ...)
 cat_over <- function(...) cat0("\r", ...)
+
+h1 <- function(text) {
+  text_width <- crayon::col_nchar(text)
+  console_width <- cli::console_width()
+
+  if (console_width < text_width) {
+    return(cat(crayon::magenta(text), "\n"))
+  }
+
+  cat(
+    crayon::cyan("──"),
+    crayon::magenta(text),
+    crayon::cyan(strrep("─", console_width - text_width - 4)),
+    "\n"
+  )
+}

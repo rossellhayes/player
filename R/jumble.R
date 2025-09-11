@@ -97,7 +97,7 @@ Jumble <- R6::R6Class(
           !(tolower(difficulty) %in% tolower(self$difficulties))
         ) {
           clear_console()
-          cli::cli_h1("\U1F500 Jumble \U1F500")
+          h1("\U1F500 Jumble \U1F500")
 
           difficulty <- choose_menu(
             c(self$difficulties, "Quit"),
@@ -153,7 +153,7 @@ Jumble <- R6::R6Class(
       }
 
       clear_console()
-      cli::cli_h1("\U1F500 Jumble \U1F500")
+      h1("\U1F500 Jumble \U1F500")
       cli::cat_line(
         'Type "quit" to exit. Type "help" for commands.',
         col = "grey"

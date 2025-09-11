@@ -14,7 +14,7 @@ play_global_thermonuclear_war <- function() {
 
   Sys.sleep(1)
   clear_console()
-  cli::cli_h1("\U2622\UFE0F Global Themonuclear War \U2622\UFE0F")
+  h1("\U2622\UFE0F Global Themonuclear War \U2622\UFE0F")
 
   cli::cli_progress_bar("Preparing AI...        ", total = 100)
 
@@ -35,7 +35,7 @@ play_global_thermonuclear_war <- function() {
   Sys.sleep(0.5)
 
   clear_console()
-  cli::cli_h1("\U2622\UFE0F Global Themonuclear War \U2622\UFE0F")
+  h1("\U2622\UFE0F Global Themonuclear War \U2622\UFE0F")
   message_1 <- " "
   message_2 <- " "
   message_3 <- " "

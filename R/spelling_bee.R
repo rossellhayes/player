@@ -62,7 +62,7 @@ Spelling_Bee <- R6::R6Class(
 
       clear_console()
 
-      cli::cli_h1("\U1F41D Spelling Bee \U1F41D")
+      h1("\U1F41D Spelling Bee \U1F41D")
       cli::cli_text(
         cli::col_grey(
           'Type "/quit" to exit,

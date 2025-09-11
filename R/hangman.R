@@ -79,7 +79,7 @@ Hangman <- R6::R6Class(
           !(tolower(difficulty) %in% tolower(self$difficulties))
         ) {
           clear_console()
-          cli::cli_h1("\U1FAA2 Hangman \U1FAA2")
+          h1("\U1FAA2 Hangman \U1FAA2")
 
           difficulty <- choose_menu(
             c(self$difficulties, "Quit"),
@@ -125,7 +125,7 @@ Hangman <- R6::R6Class(
       }
 
       clear_console()
-      cli::cli_h1("\U1FAA2 Hangman \U1FAA2")
+      h1("\U1FAA2 Hangman \U1FAA2")
       cli::cli_text(
         cli::col_grey('Type "quit" to exit. Type "help" for commands.')
       )

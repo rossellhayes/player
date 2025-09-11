@@ -63,7 +63,7 @@ ShutTheBox <- R6::R6Class(
     print = function(roll = FALSE) {
       clear_console()
 
-      cli::cli_h1(cli::col_magenta("\U1F3B2 Shut the Box \U1F3B2"))
+      h1("\U1F3B2 Shut the Box \U1F3B2")
 
       print_tiles(private$tiles)
 

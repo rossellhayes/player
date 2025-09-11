@@ -75,7 +75,7 @@ Poker <- R6::R6Class(
 
     play = function() {
       clear_console()
-      cli::cli_h1("\U1F0CF Poker \U1F0CF")
+      h1("\U1F0CF Poker \U1F0CF")
 
       print(self, index = TRUE)
 
