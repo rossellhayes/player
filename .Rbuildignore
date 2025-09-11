@@ -8,3 +8,5 @@
 ^pkgdown$
 ^\.github$
 ^man/figures/logo\.pptx$
+^CRAN-SUBMISSION$
+^cran-comments\.md$
