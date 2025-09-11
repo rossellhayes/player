@@ -8,6 +8,7 @@ reference:
   - play
 - title: Games
   contents:
+  - play_coin_flip
   - play_hangman
   - play_magic_8_ball
   - play_jumble
