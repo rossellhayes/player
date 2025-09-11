@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 `r badger::badge_github_version(color = "brightgreen")`
-`r badger::badge_lifecycle("experimental")`
+`r badger::badge_lifecycle("stable")`
 `r badger::badge_license("MIT", color = "blueviolet")`
 <!-- badges: end -->
 
