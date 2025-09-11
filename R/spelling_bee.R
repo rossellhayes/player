@@ -63,25 +63,30 @@ Spelling_Bee <- R6::R6Class(
       clear_console()
 
       h1("\U1F41D Spelling Bee \U1F41D")
-      cli::cli_text(
+      cat_tnl(
         cli::col_grey(
-          'Type "/quit" to exit,
-          "/shuffle" to rearrange letters,
-          and "/restart" to start a new game.'
+          stringr::str_wrap(
+            paste(
+              'Type "/quit" to exit,',
+              '"/shuffle" to rearrange letters,',
+              'and "/restart" to start a new game.'
+            ),
+            cli::console_width()
+          )
         )
       )
-      cli::cat_line("Score: ", private$score, " (", private$rank, ")")
-      cli::cat_line()
-      cli::cat_line("  ", private$letters[[1]], "   ", private$letters[[2]])
-      cli::cat_line()
-      cli::cat_line(
+      cat_tnl("Score: ", private$score, " (", private$rank, ")")
+      cat_blank_line()
+      cat_tnl("  ", private$letters[[1]], "   ", private$letters[[2]])
+      cat_blank_line()
+      cat_tnl(
         private$letters[[3]], "  ",
         cli::bg_yellow(" ", private$center, " "), "  ",
         private$letters[[4]]
       )
-      cli::cat_line()
-      cli::cat_line("  ", private$letters[[5]], "   ", private$letters[[6]])
-      cli::cat_line()
+      cat_blank_line()
+      cat_tnl("  ", private$letters[[5]], "   ", private$letters[[6]])
+      cat_blank_line()
 
       if (!is.null(private$answers)) {
         cat(
@@ -92,7 +97,7 @@ Spelling_Bee <- R6::R6Class(
       }
 
       if (!is.null(private$score_plus)) {
-        cli::cat_line("+", private$score_plus, " points!")
+        cat_tnl("+", private$score_plus, " points!")
       }
 
       private$guess()
@@ -120,18 +125,19 @@ Spelling_Bee <- R6::R6Class(
       )
 
       if (grepl("[^a-z]", answer)) {
-        cli::cli_text("Your answer included a non-letter character.")
+        cat_tnl("Your answer included a non-letter character.")
         return(private$guess())
       }
 
       if (nchar(answer) < 4) {
-        cli::cli_text("Your answer has to be at least four letters long.")
+        cat_tnl("Your answer has to be at least four letters long.")
         return(private$guess())
       }
 
       if (!grepl(private$center, answer, ignore.case = TRUE)) {
-        cli::cli_text(
-          "Your answer has to include the center letter: {private$center}"
+        cat_tnl(
+          "Your answer has to include the center letter: ",
+          private$center
         )
         return(private$guess())
       }
@@ -145,7 +151,7 @@ Spelling_Bee <- R6::R6Class(
           ignore.case = TRUE
         )
       ) {
-        cli::cli_text(
+        cat_tnl(
           "Your answer includes a letter that isn't in available in this game."
         )
         return(private$guess())
@@ -162,7 +168,7 @@ Spelling_Bee <- R6::R6Class(
         return(self$play())
       }
 
-      cli::cli_text("I don't recognize that word.")
+      cat_tnl("I don't recognize that word.")
       private$guess()
     },
 

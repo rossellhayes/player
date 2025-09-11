@@ -1,5 +1,5 @@
 intensive_analysis <- function(minutes = 0.8, speed = 2, lambda = 1, background_job = TRUE) {
-  cli::cli_text("What is your question?")
+  cat_tnl("What is your question?")
   question <- input("Question: ", transform = identity)
 
   magic_8_ball <- magic_8_ball

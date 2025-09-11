@@ -19,12 +19,14 @@ input <- function(prompt = "> ", transform = tolower) {
 }
 
 choose_menu <- function(options, title = NULL) {
-  if (!is.null(title)) cli::cli_text(title)
+  if (!is.null(title)) cat_tnl(title)
 
   if (!rlang::is_named(options)) names(options) <- options
 
-  cli::cli_ol(names(options))
-  cli::cat_line()
+  numbers <- cli::col_grey(paste0(seq_along(options), "."))
+  numbers <- stringr::str_pad(numbers, max(stringr::str_width(numbers)), "left")
+  cat_tnl(paste(" ", numbers, names(options), collapse = "\n"))
+  cat_blank_line()
 
   repeat {
     input <- input("Selection: ")
@@ -38,10 +40,15 @@ choose_menu <- function(options, title = NULL) {
       return(options[fuzzy_match])
     }
 
-    cli::cli_text("I didn't understand that input.")
-    cli::cli_text(
-      "Please enter a digit ({.or {seq_along(options)}})
-    or a command ({.or {options}})."
+    cat_tnl("I didn't understand that input.")
+    cat_tnl(
+      stringr::str_wrap(
+        glue::glue(
+          "Please enter a digit ({and::or(seq_along(options))})
+          or a command ({and::or(options)})."
+        ),
+        width = cli::console_width()
+      )
     )
   }
 }
@@ -51,9 +58,15 @@ map_chr <- function(.x, .f, ...) {
 }
 
 cat0 <- function(...) cat(..., sep = "")
-cat_line <- function(...) cat0("\n", ...)
-cat_over <- function(...) cat0("\r", ...)
+cat_pnl <- function(...) cat0("\n", ...)
+cat_tnl <- function(...) cat0(..., "\n")
+cat_ptnl <- function(...) cat0("\n", ..., "\n")
+cat_over <- function(..., sep = "") cat("\r", paste(..., sep = sep))
+cat_over_tnl <- function(...) cat0("\r", ..., "\n")
+cat_blank_line <- function() cat_tnl()
 
-h1 <- function(text) {
-  cli::cat_rule(cli::col_magenta(text), col = "cyan")
+h1 <- function(...) cli::cat_rule(cli::col_magenta(...), col = "cyan")
+h1_center <- function(...) {
+  cat_tnl(cli::rule(center = cli::col_magenta(...), col = "cyan"))
 }
+h3 <- function(...) cat_ptnl(cli::col_grey("\u2500\u2500 "), ...)

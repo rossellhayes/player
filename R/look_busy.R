@@ -83,7 +83,7 @@ look_busy_internal <- function(minutes, speed = 1, lambda = 3) {
   start_time <- Sys.time()
 
   while (difftime(Sys.time(), start_time, units = "mins") < minutes) {
-    cli::cli_h3(shuffled_status_messages[[i]])
+    h3(shuffled_status_messages[[i]])
     i <- i + 1
     if (i > length(shuffled_status_messages)) {
       shuffled_status_messages <- paste0(shuffle(status_messages), "...")
@@ -106,7 +106,7 @@ look_busy_internal <- function(minutes, speed = 1, lambda = 3) {
       result <- signif(1000 ^ stats::rnorm(1), 1 + stats::rpois(1, 3))
       if (result > 1 & runif(1) > 1/4) result <- round(result)
 
-      cli::cat_line(variable, " = ", result)
+      cat_tnl(variable, " = ", result)
 
       Sys.sleep(stats::runif(1, 0.1, 0.5) * (1/speed))
     }

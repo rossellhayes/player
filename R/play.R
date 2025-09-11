@@ -70,8 +70,8 @@ ask_resume <- function(game) {
 }
 
 invalid_response <- function() {
-  cli::cli_text(
-    'I didn\'t understand that input. Please type "y" or "n" or press ESC.'
+  cat_tnl(
+    'I didn\'t understand that input. Please type "y" or "n" or press [ESC].'
   )
   tolower(substr(input("> "), 1, 1))
 }

@@ -52,7 +52,6 @@ ShutTheBox <- R6::R6Class(
 
       private$assert_possible_moves()
 
-      cli::cli_text("Enter tiles to shut.")
       private$shut()
 
       private$dice <- integer(0)
@@ -79,16 +78,16 @@ ShutTheBox <- R6::R6Class(
 
     roll = function() {
       if (max(private$tiles) < 7) {
-        cli::cli_text("Would you like to roll one or two dice?")
+        cat_tnl("Would you like to roll one or two dice?")
 
         input <- input("Dice: ")
 
         if (input == "quit") quit_game()
 
         if (!input %in% 1:2) {
-          cli::cli_text(
+          cat_tnl(
             "I didn't understand that input.
-            Make sure to enter either {.or {.val {1:2}}}."
+            Make sure to enter either 1 or 2."
           )
 
           return(private$roll())
@@ -96,7 +95,7 @@ ShutTheBox <- R6::R6Class(
 
         n <- input
       } else {
-        cli::cli_text("Press {.key ENTER} to roll.")
+        cat_tnl("Press [ENTER] to roll.")
         input <- input()
         if (input == "quit") quit_game()
         n <- 2
@@ -106,7 +105,7 @@ ShutTheBox <- R6::R6Class(
     },
 
     shut = function() {
-      input <- input("Shut: ")
+      input <- input("Enter tiles to shut: ")
 
       if (input == "quit") quit_game()
 
@@ -116,21 +115,21 @@ ShutTheBox <- R6::R6Class(
       )
 
       if (!is.integer(input)) {
-        cli::cli_text(
+        cat_tnl(
           "I didn't understand that input. Make sure to only enter digits."
         )
         private$shut()
       }
 
       if (!all(input %in% private$tiles)) {
-        cli::cli_text("Make sure to only select tiles that are up.")
+        cat_tnl("Make sure to only select tiles that are up.")
         private$shut()
       }
 
       if (sum(input) != sum(private$dice)) {
-        cli::cli_text(
-          "The sum of your selected tiles must be equal to
-          {.val {sum(private$dice)}."
+        cat0(
+          "The sum of your selected tiles must be equal to ",
+          sum(private$dice), ".\n"
         )
         private$shut()
       } else {
@@ -157,20 +156,18 @@ ShutTheBox <- R6::R6Class(
 
     lose = function() {
       self$game_over <- TRUE
-      cli::cli_text("Sorry, there are no possible moves.")
+      cat_tnl("Sorry, there are no possible moves.")
       private$ask_replay()
     },
 
     win = function() {
       self$game_over <- FALSE
-      cli::cli_text("You win!")
+      cat_tnl("You win!")
       private$ask_replay()
     },
 
     ask_replay = function() {
-      cli::cli_text(
-        "Press {.key ENTER} to play again or {.key ESC} to quit."
-      )
+      cat("Press [ENTER] to play again or [ESC] to quit.")
       input <- input()
       private$replay()
     },
@@ -222,21 +219,14 @@ print_tiles <- function(up) {
 
 print_dice <- function(x, prefix = NULL, roll = FALSE, ...) {
   if (isTRUE(roll)) {
-    withr::local_options("cli.progress_show_after" = 0)
-
-    message <- ""
-
-    cli::cli_progress_message("{prefix}{message}")
-
     for (i in seq_len(60)) {
       random_dice <- sample(1:6, length(x), replace = TRUE)
-      message <- paste0(paste(random_dice, collapse = " "))
-      cli::cli_progress_update()
+      message <- paste0(prefix, paste(random_dice, collapse = " "))
+      cat_over("\b", message)
       Sys.sleep(1/60)
+      cat_over(strrep(" ", stringr::str_width(message)))
     }
-
-    cli::cli_status_clear()
   }
 
-  cli::cat_line(prefix, paste(x, collapse = " "))
+  cat_over_tnl(prefix, paste(x, collapse = " "))
 }

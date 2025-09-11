@@ -154,13 +154,11 @@ Jumble <- R6::R6Class(
 
       clear_console()
       h1("\U1F500 Jumble \U1F500")
-      cli::cat_line(
-        'Type "quit" to exit. Type "help" for commands.',
-        col = "grey"
+      cat_tnl(
+        cli::col_grey('Type "quit" to exit. Type "help" for commands.')
       )
 
-      cli::cat_line(toupper(space_out_letters(private$jumble)))
-      cli::cat_line()
+      cat_tnl(toupper(space_out_letters(private$jumble)))
     }
   ),
   private = list(
@@ -243,7 +241,7 @@ Jumble <- R6::R6Class(
     ask_restart = function() {
       self$game_over <- TRUE
 
-      cat('\nPress ENTER to try again or type "quit" to exit.\n')
+      cat('\nPress [ENTER] to try again or [ESC] to exit.\n')
 
       if (grepl("quit", tolower(input("> ")))) {
         return(quit_game())

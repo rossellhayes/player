@@ -8,7 +8,7 @@ play_global_thermonuclear_war <- function() {
   line_2 <- "The only winning move is not to play."
   line_3 <- paste0(
     "How about a nice game of ",
-    sample(game_list[!game_list == "Global Thermonuclear War"], 1),
+    sample(names(game_list)[!game_list == "Global Thermonuclear War"], 1),
     "?"
   )
 
@@ -70,6 +70,6 @@ play_global_thermonuclear_war <- function() {
   Sys.sleep(1)
 
   cli::cli_progress_done()
-  cli::cat_line()
+  cat_blank_line()
   play()
 }

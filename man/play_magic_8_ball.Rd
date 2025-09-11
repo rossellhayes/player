@@ -4,13 +4,16 @@
 \alias{play_magic_8_ball}
 \title{Ask a Magic 8 Ball a question in the console}
 \usage{
-play_magic_8_ball(question = NULL)
+play_magic_8_ball(question = NULL, header = rlang::is_interactive())
 }
 \arguments{
 \item{question}{A character string.
 Ask the Magic 8 Ball anything your heart desires.
 If \code{\link{NULL}}, the default, you will be prompted to type a question
 interactively in the console.}
+
+\item{header}{If \code{TRUE}, prints a header for the game.
+Defaults to \code{TRUE} if the session is \link{interactive} and \code{FALSE} otherwise.}
 }
 \value{
 A character string answering your \code{question}.
@@ -20,4 +23,6 @@ Ask a Magic 8 Ball a question in the console
 }
 \examples{
 play_magic_8_ball("Will I ever find love?")
+
+if (rlang::is_interactive()) play_magic_8_ball()
 }

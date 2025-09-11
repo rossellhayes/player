@@ -87,6 +87,9 @@ rps_record_default <- data.frame(
 #'   predict what you will throw and try to beat you.
 #' @param animate If `TRUE`, play a "rock, paper, scissors, shoot!" animation
 #'   before revealing what you and the computer throw.
+#'   Defaults to `TRUE` if the session is [interactive] and `FALSE` otherwise.
+#' @param header If `TRUE`, prints a header for the game.
+#'   Defaults to `TRUE` if the session is [interactive] and `FALSE` otherwise.
 #' @export
 #'
 #' @examples
@@ -96,8 +99,17 @@ rps_record_default <- data.frame(
 play_rock_paper_scissors <- function(
   selection = c(NA, "rock", "paper", "scissors"),
   predict = TRUE,
-  animate = TRUE
+  animate = rlang::is_interactive(),
+  header = rlang::is_interactive()
 ) {
+  if (isTRUE(header)) {
+    h1_center(
+      paste(rock_paper_scissors_hands[1:3], collapse = ""),
+      " Rock, Paper, Scissors ",
+      paste(rock_paper_scissors_icons[1:3], collapse = "")
+    )
+  }
+
   rps_record_file <- file.path(tools::R_user_dir("player"), "rps", "record.rds")
 
   if (!dir.exists(file.path(tools::R_user_dir("player"), "rps"))) {
@@ -120,7 +132,7 @@ play_rock_paper_scissors <- function(
 
     if (player_selection %in% 1:3) break
 
-    if (!rlang::is_interative()) {
+    if (!rlang::is_interactive()) {
       cli::cli_abort("{.arg selection} must be one of {.value {.or {c('rock', 'paper', 'scissors')}}}.")
     }
 
@@ -200,7 +212,7 @@ play_rock_paper_scissors <- function(
     result <- "lose"
   }
 
-  cat_line(rps_center_message(paste("You", result)))
+  cat_ptnl(rps_center_message(paste("You", result)))
 
   if (isTRUE(predict)) {
     prediction <- round(rev(sort(prediction)) * 100)
@@ -210,7 +222,7 @@ play_rock_paper_scissors <- function(
       paste0(prediction[[2]], "% ", names(prediction)[[2]], ","),
       paste0(prediction[[3]], "% ", names(prediction)[[3]], ".")
     )
-    cat_line(rps_center_message(prediction_message))
+    cat_tnl(rps_center_message(prediction_message))
   }
 
   this_rps_record <- data.frame(
@@ -231,20 +243,24 @@ play_rock_paper_scissors <- function(
     plu::ral("{n} tie.", n = sum(rps_record[["tie"]]))
   )
 
-  cat_line(rps_center_message(record_message))
+  cat_tnl(rps_center_message(record_message))
 
   if (rlang::is_interactive()) {
-    selection <- input("Press ENTER to play again or ESC to quit. ")
-    cat("\b\b\r                                          ")
+    selection <- input("Press [ENTER] to play again or [ESC] to quit. ")
+    cat("\b\b\r                                              ")
 
     if (!nzchar(selection)) {
       selection <- NA
     } else {
-      cat(" ", strrep(" ", stringr::str_width(selection)))
-      cat_line()
+      cat_tnl(" ", strrep(" ", stringr::str_width(selection)))
     }
 
-    play_rock_paper_scissors(selection, predict = predict, animate = animate)
+    play_rock_paper_scissors(
+      selection,
+      predict = predict,
+      animate = animate,
+      header = FALSE
+    )
   }
 }
 

@@ -4,7 +4,11 @@
 \alias{play_coin_flip}
 \title{Flip a coin}
 \usage{
-play_coin_flip(n = NULL, animate = rlang::is_interactive())
+play_coin_flip(
+  n = NULL,
+  animate = rlang::is_interactive(),
+  header = rlang::is_interactive()
+)
 }
 \arguments{
 \item{n}{How many coins to flip.
@@ -12,6 +16,12 @@ Defaults to \code{NULL}, which interactively asks how many to flip.}
 
 \item{animate}{If \code{TRUE}, play an animation before revealing the result.
 Defaults to \code{TRUE} if the session is \link{interactive} and \code{FALSE} otherwise.}
+
+\item{header}{If \code{TRUE}, prints a header for the game.
+Defaults to \code{TRUE} if the session is \link{interactive} and \code{FALSE} otherwise.}
+}
+\value{
+A character vector of \code{"heads"} or \code{"tails"} results.
 }
 \description{
 Flip a coin

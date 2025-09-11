@@ -7,7 +7,8 @@
 play_rock_paper_scissors(
   selection = c(NA, "rock", "paper", "scissors"),
   predict = TRUE,
-  animate = TRUE
+  animate = rlang::is_interactive(),
+  header = rlang::is_interactive()
 )
 }
 \arguments{
@@ -19,7 +20,11 @@ Defaults to \code{NA}, which interactively asks which to throw.}
 predict what you will throw and try to beat you.}
 
 \item{animate}{If \code{TRUE}, play a "rock, paper, scissors, shoot!" animation
-before revealing what you and the computer throw.}
+before revealing what you and the computer throw.
+Defaults to \code{TRUE} if the session is \link{interactive} and \code{FALSE} otherwise.}
+
+\item{header}{If \code{TRUE}, prints a header for the game.
+Defaults to \code{TRUE} if the session is \link{interactive} and \code{FALSE} otherwise.}
 }
 \description{
 Play a game of rock, paper, scissors in the console

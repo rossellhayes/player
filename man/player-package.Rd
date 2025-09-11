@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Includes a number of games that can be played in the R console.
+Games that can be played in the R console. Includes coin flip, hangman, jumble, magic 8 ball, poker, rock paper scissors, shut the box, spelling bee, and 2048.
 }
 \seealso{
 Useful links:

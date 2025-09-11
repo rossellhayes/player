@@ -126,7 +126,7 @@ Hangman <- R6::R6Class(
 
       clear_console()
       h1("\U1FAA2 Hangman \U1FAA2")
-      cli::cli_text(
+      cat_tnl(
         cli::col_grey('Type "quit" to exit. Type "help" for commands.')
       )
 
@@ -153,12 +153,13 @@ Hangman <- R6::R6Class(
       }
 
       private$board[5] <- paste(
-        rep("\u203e", length(private$word)), collapse = ""
+        rep("\u203e", length(private$word)),
+        collapse = " "
       )
 
       display <- private$word
       display[!private$word %in% private$guesses] <- " "
-      private$board[4] <- paste(display, collapse = "")
+      private$board[4] <- paste(display, collapse = " ")
 
       cat(
         paste(
