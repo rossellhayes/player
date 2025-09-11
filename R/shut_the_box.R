@@ -132,9 +132,10 @@ ShutTheBox <- R6::R6Class(
           "The sum of your selected tiles must be equal to
           {.val {sum(private$dice)}."
         )
+        private$shut()
+      } else {
+        private$tiles <- setdiff(private$tiles, input)
       }
-
-      private$tiles <- setdiff(private$tiles, input)
 
       if (length(private$tiles) == 0) {
         private$win()
