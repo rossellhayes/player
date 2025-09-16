@@ -40,6 +40,7 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">play_rock_paper_scissors</span><span class="op">(</span></span>
 <span>  selection <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="st">"rock"</span>, <span class="st">"paper"</span>, <span class="st">"scissors"</span><span class="op">)</span>,</span>
 <span>  predict <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  record_data <span class="op">=</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/is_interactive.html" class="external-link">is_interactive</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  animate <span class="op">=</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/is_interactive.html" class="external-link">is_interactive</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  header <span class="op">=</span> <span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/is_interactive.html" class="external-link">is_interactive</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -60,6 +61,12 @@ Defaults to <code>NA</code>, which interactively asks which to throw.</p></dd>
 predict what you will throw and try to beat you.</p></dd>
 
 
+<dt id="arg-record-data">record_data<a class="anchor" aria-label="anchor" href="#arg-record-data"></a></dt>
+<dd><p>If <code>TRUE</code>, save data from this game into a file.
+This data is used for predictions when <code>predict</code> is <code>TRUE</code>.
+Defaults to <code>TRUE</code> if the session is <a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a> and <code>FALSE</code> otherwise.</p></dd>
+
+
 <dt id="arg-animate">animate<a class="anchor" aria-label="anchor" href="#arg-animate"></a></dt>
 <dd><p>If <code>TRUE</code>, play a "rock, paper, scissors, shoot!" animation
 before revealing what you and the computer throw.
@@ -78,7 +85,6 @@ Defaults to <code>TRUE</code> if the session is <a href="https://rdrr.io/r/base/
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                Rock ✊   📄 Paper                               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                     You lose                                    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         I predicted you would throw: 33% scissors, 33% paper, 33% rock.         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       Your record: 0 wins, 1 loss, 0 ties.                      </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/is_interactive.html" class="external-link">is_interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="fu">play_rock_paper_scissors</span><span class="op">(</span><span class="op">)</span></span></span>
 </code></pre></div>
