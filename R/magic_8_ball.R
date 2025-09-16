@@ -27,7 +27,9 @@ play_magic_8_ball <- function(question = NULL, header = rlang::is_interactive())
   response <- magic_8_ball()
 
   if (rlang::is_interactive()) {
-    selection <- input("Press [ENTER] to ask another question or [ESC] to quit. ")
+    selection <- input(
+      cli::col_grey("Press [ENTER] to ask another question or [ESC] to quit. ")
+    )
     cat0("\b\b\r", strrep(" ", 46), strrep(" ", stringr::str_width(selection)))
     cat0(strrep("\b", 46), strrep("\b", stringr::str_width(selection)))
 
@@ -49,12 +51,10 @@ magic_8_ball <- function() {
   steps <- steps * sample(c(1, -1), 1)
 
   for (i in seq_along(steps)) {
-    message <- paste(triangles[steps[seq(1, i)] %% 4], collapse = "")
+    message <- paste(triangles[steps[seq(1, i)] %% 4 + 1], collapse = "")
     cat_over(message)
     Sys.sleep(stats::runif(1, 0.05, 0.2))
   }
-
-  Sys.sleep(0.5)
 
   cat_over(cli::col_magenta(response))
 
