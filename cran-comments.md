@@ -1,4 +1,6 @@
-* This resubmission fixes an earlier submission where the title in DESCRIPTION was not in title case.
+* This resubmission fixes an earlier submission.
+  * The `play_rock_paper_scissors()` no longer write into the user's files during examples.
+  * The `intensive_analysis()` function no longer directly modifies `.GlobalEnv`
 
 ## R CMD check results
 
