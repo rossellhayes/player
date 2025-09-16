@@ -1,4 +1,6 @@
-intensive_analysis <- function(minutes = 0.8, speed = 2, lambda = 1, background_job = TRUE) {
+intensive_analysis <- function(
+  minutes = 0.8, speed = 2, lambda = 1, background_job = TRUE
+) {
   cat_tnl("What is your question?")
   question <- input("Question: ", transform = identity)
 
@@ -15,9 +17,9 @@ intensive_analysis <- function(minutes = 0.8, speed = 2, lambda = 1, background_
   delayedAssign(
     "intensive_analysis_results",
     {
-      h1("Question: {question}")
+      h1("Question: ", question)
       magic_8_ball()
     },
-    assign.env = .GlobalEnv
+    assign.env = rlang::caller_env()
   )
 }
