@@ -4,7 +4,7 @@
 \name{player-package}
 \alias{player}
 \alias{player-package}
-\title{player: Play games in the console}
+\title{player: Play Games in the Console}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 

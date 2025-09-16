@@ -7,6 +7,7 @@
 play_rock_paper_scissors(
   selection = c(NA, "rock", "paper", "scissors"),
   predict = TRUE,
+  record_data = rlang::is_interactive(),
   animate = rlang::is_interactive(),
   header = rlang::is_interactive()
 )
@@ -18,6 +19,10 @@ Defaults to \code{NA}, which interactively asks which to throw.}
 
 \item{predict}{If \code{TRUE}, the computer player fits a model on past games to
 predict what you will throw and try to beat you.}
+
+\item{record_data}{If \code{TRUE}, save data from this game into a file.
+This data is used for predictions when \code{predict} is \code{TRUE}.
+Defaults to \code{TRUE} if the session is \link{interactive} and \code{FALSE} otherwise.}
 
 \item{animate}{If \code{TRUE}, play a "rock, paper, scissors, shoot!" animation
 before revealing what you and the computer throw.

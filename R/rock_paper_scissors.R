@@ -85,6 +85,9 @@ rps_record_default <- data.frame(
 #'   Defaults to `NA`, which interactively asks which to throw.
 #' @param predict If `TRUE`, the computer player fits a model on past games to
 #'   predict what you will throw and try to beat you.
+#' @param record_data If `TRUE`, save data from this game into a file.
+#'   This data is used for predictions when `predict` is `TRUE`.
+#'   Defaults to `TRUE` if the session is [interactive] and `FALSE` otherwise.
 #' @param animate If `TRUE`, play a "rock, paper, scissors, shoot!" animation
 #'   before revealing what you and the computer throw.
 #'   Defaults to `TRUE` if the session is [interactive] and `FALSE` otherwise.
@@ -99,6 +102,7 @@ rps_record_default <- data.frame(
 play_rock_paper_scissors <- function(
   selection = c(NA, "rock", "paper", "scissors"),
   predict = TRUE,
+  record_data = rlang::is_interactive(),
   animate = rlang::is_interactive(),
   header = rlang::is_interactive()
 ) {
@@ -112,7 +116,10 @@ play_rock_paper_scissors <- function(
 
   rps_record_file <- file.path(tools::R_user_dir("player"), "rps", "record.rds")
 
-  if (!dir.exists(file.path(tools::R_user_dir("player"), "rps"))) {
+  if (
+    isTRUE(record_data) &&
+    !dir.exists(file.path(tools::R_user_dir("player"), "rps"))
+  ) {
     dir.create(file.path(tools::R_user_dir("player"), "rps"), recursive = TRUE)
   }
 
@@ -225,25 +232,26 @@ play_rock_paper_scissors <- function(
     cat_tnl(rps_center_message(prediction_message))
   }
 
-  this_rps_record <- data.frame(
-    player = options[[player_selection]],
-    computer = options[[computer_selection]],
-    win = result == "win!",
-    lose = result == "lose",
-    tie = result == "tied"
-  )
+  if (isTRUE(record_data)) {
+    this_rps_record <- data.frame(
+      player = options[[player_selection]],
+      computer = options[[computer_selection]],
+      win = result == "win!",
+      lose = result == "lose",
+      tie = result == "tied"
+    )
 
-  rps_record <- rbind(rps_record, this_rps_record)
-  saveRDS(rps_record, rps_record_file)
+    rps_record <- rbind(rps_record, this_rps_record)
+    saveRDS(rps_record, rps_record_file)
 
-  record_message <- paste(
-    "Your record:",
-    plu::ral("{n} win,", n = sum(rps_record[["win"]])),
-    plu::ral("{n} loss,", n = sum(rps_record[["lose"]])),
-    plu::ral("{n} tie.", n = sum(rps_record[["tie"]]))
-  )
-
-  cat_tnl(rps_center_message(record_message))
+    record_message <- paste(
+      "Your record:",
+      plu::ral("{n} win,", n = sum(rps_record[["win"]])),
+      plu::ral("{n} loss,", n = sum(rps_record[["lose"]])),
+      plu::ral("{n} tie.", n = sum(rps_record[["tie"]]))
+    )
+    cat_tnl(rps_center_message(record_message))
+  }
 
   if (rlang::is_interactive()) {
     selection <- input("Press [ENTER] to play again or [ESC] to quit. ")
