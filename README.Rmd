@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 # player <img src="man/figures/logo.png?raw=TRUE" align="right" height="138" />
 
 <!-- badges: start -->
+`r badger::badge_cran_release(color = "brightgreen")`
+`r badger::badge_runiverse()`
 `r badger::badge_github_version(color = "brightgreen")`
 `r badger::badge_lifecycle("stable")`
 `r badger::badge_license("MIT", color = "blueviolet")`
@@ -23,8 +25,17 @@ knitr::opts_chunk$set(
 
 ## Installation
 
-You can install the [development version of **player**](https://github.com/rossellhayes/player) from [GitHub](https://github.com/) with:
+You can install the release version of **player** from [CRAN](https://cran.r-project.org/package=player) with:
+``` r
+install.packages("player")
+```
 
+Or you can install the development version from [R-universe](https://rossellhayes.r-universe.dev/player) with:
+``` r
+install.packages("player", repos = c("https://rossellhayes.r-universe.dev", "https://cloud.r-project.org"))
+```
+
+or from [GitHub](https://github.com/rossellhayes/player) with:
 ``` r
 # install.packages("pak")
 pak::pkg_install("rossellhayes/player")

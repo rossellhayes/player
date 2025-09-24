@@ -5,6 +5,9 @@
 
 <!-- badges: start -->
 
+[![](https://www.r-pkg.org/badges/version/player?color=brightgreen)](https://cran.r-project.org/package=player)
+[![r-universe status
+badge](https://rossellhayes.r-universe.dev/badges/player)](https://rossellhayes.r-universe.dev/player)
 [![](https://img.shields.io/badge/devel%20version-0.1.0-brightgreen.svg)](https://github.com/rossellhayes/player)
 [![](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![License:
@@ -13,9 +16,21 @@ MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://cran.r-pr
 
 ## Installation
 
-You can install the [development version of
-**player**](https://github.com/rossellhayes/player) from
-[GitHub](https://github.com/) with:
+You can install the release version of **player** from
+[CRAN](https://cran.r-project.org/package=player) with:
+
+``` r
+install.packages("player")
+```
+
+Or you can install the development version from
+[R-universe](https://rossellhayes.r-universe.dev/player) with:
+
+``` r
+install.packages("player", repos = c("https://rossellhayes.r-universe.dev", "https://cloud.r-project.org"))
+```
+
+or from [GitHub](https://github.com/rossellhayes/player) with:
 
 ``` r
 # install.packages("pak")
