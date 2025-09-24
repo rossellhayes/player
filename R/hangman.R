@@ -58,6 +58,24 @@ play_hangman <- function(
     return(resume("hangman"))
   }
 
+  difficulties <- c("beginner", "easy", "medium", "hard", "expert")
+  difficulty <- difficulties[pmatch(tolower(difficulty), difficulties)]
+
+  if (
+    !is.null(difficulty) && (
+      length(difficulty) > 1 ||
+      !all(difficulty %in% difficulties)
+    )
+  ) {
+    cli::cli_abort(c(
+      paste(
+        '{.arg difficulty} must be one of',
+        '{.value {.or {paste0(\'"\', c("beginner", "easy", "medium", "hard", "expert"), \'"\')}}}.'
+      ),
+      "*" = "Did you mean to set {.arg word_list}?"
+    ))
+  }
+
   if (!is.null(word_list)) {word_list <- unique(word_list)}
 
   game_env$hangman <- Hangman$new(difficulty, word_list)
@@ -75,10 +93,11 @@ Hangman <- R6::R6Class(
       }
 
       if (length(self$word_list) == 0) {
-        if (
-          length(difficulty) != 1 ||
-          !(tolower(difficulty) %in% tolower(self$difficulties))
-        ) {
+        difficulty <- self$difficulties[
+          pmatch(tolower(difficulty), tolower(self$difficulties))
+        ]
+
+        if (length(difficulty) != 1 || !difficulty %in% self$difficulties) {
           clear_console()
           h1("\U1FAA2 Hangman \U1FAA2")
 

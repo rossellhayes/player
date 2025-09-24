@@ -1,5 +1,7 @@
 # player (development version)
 
+- Improve handling for bad inputs to `play_hangman()`.
+
 # player 0.1.0
 
 - Initial release with:
