@@ -28,7 +28,7 @@
 
     <a class="navbar-brand me-2" href="index.html">player</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,6 +38,7 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
@@ -61,8 +62,14 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the <a href="https://github.com/rossellhayes/player" class="external-link">development version of <strong>player</strong></a> from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<p>You can install the release version of <strong>player</strong> from <a href="https://cran.r-project.org/package=player" class="external-link">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"player"</span><span class="op">)</span></span></code></pre></div>
+<p>Or you can install the development version from <a href="https://rossellhayes.r-universe.dev/player" class="external-link">R-universe</a> with:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"player"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://rossellhayes.r-universe.dev"</span>, <span class="st">"https://cloud.r-project.org"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>or from <a href="https://github.com/rossellhayes/player" class="external-link">GitHub</a> with:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pkg_install.html" class="external-link">pkg_install</a></span><span class="op">(</span><span class="st">"rossellhayes/player"</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -83,8 +90,27 @@
 <li>Global Thermonuclear War</li>
 </ul>
 <p>Install the package and run <code><a href="reference/play.html">player::play()</a></code> to get playing!</p>
+</div>
+<div class="section level2">
+<h2 id="gallery">Gallery<a class="anchor" aria-label="anchor" href="#gallery"></a>
+</h2>
+<div class="section level3">
+<h3 id="hangman">Hangman<a class="anchor" aria-label="anchor" href="#hangman"></a>
+</h3>
+<p><img src="reference/figures/hangman.png"></p>
+</div>
+<div class="section level3">
+<h3 id="poker">Poker<a class="anchor" aria-label="anchor" href="#poker"></a>
+</h3>
+<p><img src="reference/figures/poker.png"></p>
+</div>
+<div class="section level3">
+<h3 id="id_2048">2048<a class="anchor" aria-label="anchor" href="#id_2048"></a>
+</h3>
+<p><img src="reference/figures/2048.png"></p>
 <hr>
 <p>Hex sticker image by Flavia Rossell Hayes.</p>
+</div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
@@ -123,6 +149,8 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
+<li><a href="https://cran.r-project.org/package=player" class="external-link"><img src="https://www.r-pkg.org/badges/version/player?color=brightgreen"></a></li>
+<li><a href="https://rossellhayes.r-universe.dev/player" class="external-link"><img src="https://rossellhayes.r-universe.dev/badges/player" alt="r-universe status badge"></a></li>
 <li><a href="https://github.com/rossellhayes/player" class="external-link"><img src="https://img.shields.io/badge/devel%20version-0.1.0-brightgreen.svg"></a></li>
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg"></a></li>
 <li><a href="https://cran.r-project.org/web/licenses/MIT" class="external-link"><img src="https://img.shields.io/badge/license-MIT-blueviolet.svg" alt="License: MIT"></a></li>
