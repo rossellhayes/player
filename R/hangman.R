@@ -58,22 +58,19 @@ play_hangman <- function(
     return(resume("hangman"))
   }
 
-  difficulties <- c("beginner", "easy", "medium", "hard", "expert")
-  difficulty <- difficulties[pmatch(tolower(difficulty), difficulties)]
+  if (!is.null(difficulty)) {
+    difficulties <- c("beginner", "easy", "medium", "hard", "expert")
+    difficulty <- difficulties[pmatch(tolower(difficulty), difficulties)]
 
-  if (
-    !is.null(difficulty) && (
-      length(difficulty) > 1 ||
-      !all(difficulty %in% difficulties)
-    )
-  ) {
-    cli::cli_abort(c(
-      paste(
-        '{.arg difficulty} must be one of',
-        '{.value {.or {paste0(\'"\', c("beginner", "easy", "medium", "hard", "expert"), \'"\')}}}.'
-      ),
-      "*" = "Did you mean to set {.arg word_list}?"
-    ))
+    if (!all(difficulty %in% difficulties)) {
+      cli::cli_abort(c(
+        paste(
+          '{.arg difficulty} must be one of',
+          '{.value {.or {paste0(\'"\', c("beginner", "easy", "medium", "hard", "expert"), \'"\')}}}.'
+        ),
+        "*" = "Did you mean to set {.arg word_list}?"
+      ))
+    }
   }
 
   if (!is.null(word_list)) {word_list <- unique(word_list)}
@@ -147,7 +144,12 @@ Hangman <- R6::R6Class(
       clear_console()
       h1("\U1FAA2 Hangman \U1FAA2")
       cat_tnl(
-        cli::col_grey('Type "quit" to exit. Type "help" for commands.')
+        cli::col_grey(
+          stringr::str_wrap(
+            'Type "quit" to exit. Type "help" for commands.',
+            width = cli::console_width()
+          )
+        )
       )
 
       switch(
@@ -223,10 +225,14 @@ Hangman <- R6::R6Class(
 
       if (grepl("help", letter)) {
         cat(
-          'Type "restart" for a new word,',
-          '"surrender" to reveal the current word,',
-          'or "quit" to exit.',
-          sep = "\n"
+          stringr::str_wrap(
+            paste(
+              'Type "restart" for a new word,',
+              '"surrender" to reveal the current word,',
+              'or "quit" to exit.'
+            ),
+            width = cli::console_width()
+          )
         )
         return(private$guess())
       }

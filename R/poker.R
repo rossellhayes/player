@@ -165,9 +165,13 @@ Poker <- R6::R6Class(
       print(self, index = TRUE)
 
       cat(
-        'Please enter digits between 1 and 5 to discard,',
-        '0 to hold all cards, "quit" to exit, or "options" for settings.',
-        sep = "\n"
+        stringr::str_wrap(
+          paste(
+            'Please enter digits between 1 and 5 to discard,',
+            '0 to hold all cards, "quit" to exit, or "options" for settings.'
+          ),
+          width = cli::console_width()
+        )
       )
 
       return(private$discard())
@@ -176,11 +180,18 @@ Poker <- R6::R6Class(
     continue = function() {
       self$hand <- Poker_Hand$new()
 
-      cat(crayon::silver(
-        'Type "quit" to exit or "options" to change color settings.',
-        'Press ENTER to continue.',
+      cat(
+        cli::col_grey(
+          stringr::str_wrap(
+            c(
+              'Type "quit" to exit or "options" to change color settings.',
+              'Press ENTER to continue.'
+            ),
+            width = cli::console_width()
+          )
+        ),
         sep = "\n"
-      ))
+      )
 
       choice <- tolower(input("> "))
 
@@ -194,15 +205,10 @@ Poker <- R6::R6Class(
     },
 
     options = function() {
-      cat(
-        "Choose your color settings:",
-        "1. One color",
-        "2. Two colors",
-        "3. Four colors",
-        sep = "\n"
+      choice <- choose_menu(
+        c("One color", "Two colors", NA, "Four colors"),
+        "Choose your color settings:"
       )
-
-      choice <- input("> ")
 
       if (choice == 1) {
         self$colors <- 1

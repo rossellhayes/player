@@ -1,6 +1,7 @@
 # player (development version)
 
 - Improve handling for bad inputs to `play_hangman()`.
+- Improve message wrapping when messages are longer than the console width.
 
 # player 0.1.0
 
