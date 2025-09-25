@@ -8,7 +8,7 @@
 [![](https://www.r-pkg.org/badges/version/player?color=brightgreen)](https://cran.r-project.org/package=player)
 [![r-universe status
 badge](https://rossellhayes.r-universe.dev/badges/player)](https://rossellhayes.r-universe.dev/player)
-[![](https://img.shields.io/badge/devel%20version-0.1.0-brightgreen.svg)](https://github.com/rossellhayes/player)
+[![](https://img.shields.io/badge/devel%20version-0.1.0.9000-brightgreen.svg)](https://github.com/rossellhayes/player)
 [![](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![License:
 MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://cran.r-project.org/web/licenses/MIT)
