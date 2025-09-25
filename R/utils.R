@@ -23,16 +23,27 @@ choose_menu <- function(options, title = NULL) {
 
   if (!rlang::is_named(options)) names(options) <- options
 
-  numbers <- cli::col_grey(paste0(seq_along(options), "."))
-  numbers <- stringr::str_pad(numbers, max(stringr::str_width(numbers)), "left")
-  cat_tnl(paste(" ", numbers, names(options), collapse = "\n"))
+  numbers <- seq_along(options)
+  numbers <- numbers[!is.na(options)]
+  formatted_numbers <- cli::col_grey(
+    paste0(
+      stringr::str_pad(
+        numbers,
+        width = max(c(stringr::str_width(numbers), 2)),
+        side = "left"
+      ),
+      "."
+    )
+  )
+  options <- options[!is.na(options)]
+  cat_tnl(paste(formatted_numbers, names(options), collapse = "\n"))
   cat_blank_line()
 
   repeat {
     input <- input("Selection: ")
 
-    if (input %in% seq_along(options)) {
-      return(options[[as.numeric(input)]])
+    if (input %in% numbers) {
+      return(options[which(numbers == input)])
     }
 
     fuzzy_match <- grep(input, options, ignore.case = TRUE)
@@ -44,7 +55,7 @@ choose_menu <- function(options, title = NULL) {
     cat_tnl(
       stringr::str_wrap(
         glue::glue(
-          "Please enter a digit ({and::or(seq_along(options))})
+          "Please enter a digit ({and::or(numbers)})
           or a command ({and::or(options)})."
         ),
         width = cli::console_width()
