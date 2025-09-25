@@ -55,6 +55,20 @@ console:
 
 Install the package and run `player::play()` to get playing!
 
+## Gallery
+
+### Hangman
+
+![](man/figures/hangman.png)
+
+### Poker
+
+![](man/figures/poker.png)
+
+### 2048
+
+![](man/figures/2048.png)
+
 ------------------------------------------------------------------------
 
 Hex sticker image by Flavia Rossell Hayes.
